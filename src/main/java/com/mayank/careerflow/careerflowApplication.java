@@ -12,4 +12,5 @@ public class careerflowApplication {
 	}
  // we'll start soon
 	// jab ham spring main autoconfiguration add kar dete hai tho woh spring boot ban jatha hai
+	// aaj se code start karege
 }
