@@ -2,13 +2,7 @@ spring:
   application:
     name: careerflow
 
-  datasource:
-    url: jdbc:mysql://localhost:3306/careerflow?useSSL=false&serverTimezone=UTC
-    username: root
-    password: yourpassword
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: true
+  autoconfigure:
+    exclude: 
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration

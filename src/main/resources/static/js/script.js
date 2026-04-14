@@ -1,50 +1,76 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    const submitBtn = document.getElementById("submitBtn");
 
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevent actual form submission for this demo
+  const loginForm   = document.getElementById("loginForm");
+  const emailInput  = document.getElementById("email");
+  const passInput   = document.getElementById("password");
+  const emailGroup  = document.getElementById("emailGroup");
+  const passGroup   = document.getElementById("passGroup");
+  const submitBtn   = document.getElementById("submitBtn");
+  const btnText     = document.getElementById("btnText");
 
-        let isValid = true;
+  // --- FORM SUBMIT ---
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault(); // stop the default page reload
 
-        emailInput.parentElement.classList.remove("error");
-        passwordInput.parentElement.classList.remove("error");
+    let valid = true;
 
-     
-        if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
-            emailInput.parentElement.classList.add("error");
-            isValid = false;
-        }
+    // clear any old errors first
+    clearError(emailGroup);
+    clearError(passGroup);
 
-       
-        if (!passwordInput.value.trim()) {
-            passwordInput.parentElement.classList.add("error");
-            isValid = false;
-        }
+    // check email — must exist and have "@"
+    if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
+      showError(emailGroup);
+      valid = false;
+    }
 
-       
-        if (isValid) {
-            submitBtn.textContent = "Signing in...";
-            submitBtn.style.opacity = "0.8";
+    // check password — must not be blank
+    if (!passInput.value.trim()) {
+      showError(passGroup);
+      valid = false;
+    }
 
-           
-            setTimeout(() => {
-                alert("Login successful! Redirecting to JobTracker dashboard...");
-                submitBtn.textContent = "Sign in";
-                submitBtn.style.opacity = "1";
-                loginForm.reset();
-            }, 1500);
-        }
-    });
+    // if both fields are good, simulate a login
+    if (valid) {
+      setLoading(true);
 
-    // Remove error state on input
-    emailInput.addEventListener("input", () => {
-        emailInput.parentElement.classList.remove("error");
-    });
+      // === REPLACE THIS with a real fetch() to /api/login later ===
+      setTimeout(() => {
+        // redirect to the dashboard
+        window.location.href = "index.html";
+      }, 1200);
+      // ============================================================
+    }
+  });
 
-    passwordInput.addEventListener("input", () => {
-        passwordInput.parentElement.classList.remove("error");
-    });
+
+  // --- CLEAR ERROR WHEN USER STARTS TYPING ---
+  // (so errors don't just sit there forever annoying the user)
+  emailInput.addEventListener("input", () => clearError(emailGroup));
+  passInput.addEventListener("input",  () => clearError(passGroup));
+
+
+  // --- HELPER FUNCTIONS ---
+
+  // adds the red error state to a field wrapper
+  function showError(group) {
+    group.classList.add("has-error");
+  }
+
+  // removes the red error state
+  function clearError(group) {
+    group.classList.remove("has-error");
+  }
+
+  // swaps the button to a loading state
+  function setLoading(isLoading) {
+    if (isLoading) {
+      submitBtn.classList.add("loading");
+      btnText.textContent = "Signing in...";
+    } else {
+      submitBtn.classList.remove("loading");
+      btnText.textContent = "Sign in";
+    }
+  }
+
 });
