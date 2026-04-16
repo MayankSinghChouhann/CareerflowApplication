@@ -31,12 +31,6 @@
 	</properties>
 
 	<!-- Dependencies -->
-
-	<dependency>
-    <groupId>com.h2database</groupId>
-    <artifactId>h2</artifactId>
-    <scope>test</scope>
-</dependency>
 	<dependencies>
 
 		<!-- REST API -->
@@ -65,6 +59,13 @@
 			<optional>true</optional>
 		</dependency>
 
+		<!-- H2 In-Memory DB for Testing -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -82,12 +83,17 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 
 		</plugins>
 	</build>
 
 </project>
-     
-	 
-
