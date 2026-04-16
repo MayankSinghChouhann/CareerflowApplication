@@ -3,7 +3,9 @@ package com.mayank.careerflow.service;
 import com.mayank.careerflow.entity.Job;
 import com.mayank.careerflow.repository.JobRepository;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JobService {
@@ -20,7 +22,7 @@ public class JobService {
 
     public Job getJobById(Long id) {
         return jobRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Job not found: " + id));
+                .orElseThrow(() -> new RuntimeException("Job not found with id: " + id));
     }
 
     public Job createJob(Job job) {

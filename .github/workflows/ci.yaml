@@ -45,7 +45,7 @@ jobs:
           cache: maven
 
       - name: Run Tests with H2
-        run: mvn test -Dspring.datasource.url=jdbc:h2:mem:testdb -Dspring.datasource.driver-class-name=org.h2.Driver -Dspring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+        run: mvn test -Dspring.datasource.url=jdbc:h2:mem:testdb -Dspring.datasource.driver-class-name=org.h2.Driver -Dspring.jpa.database-platform=org.hibernate.dialect.H2Dialect -Dspring.jpa.hibernate.ddl-auto=create-drop -Dspring.autoconfigure.exclude=
 
   deploy:
     name: Deploy to Docker Hub
