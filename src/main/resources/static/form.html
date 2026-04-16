@@ -1,0 +1,93 @@
+ 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerFlow — Add Job</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <div class="brand-icon small">CF</div>
+      <span class="brand-name nav-brand">CareerFlow</span>
+    </div>
+    <div class="nav-right">
+      <a href="/index.html" class="btn-outline">← Back to Dashboard</a>
+    </div>
+  </nav>
+
+  <div class="form-page">
+    <div class="glass-card form-card">
+
+      <div class="form-header">
+        <h2 class="form-title">Add New Application</h2>
+        <p class="form-sub">Log a job you've applied to and track it from here</p>
+      </div>
+
+      <form id="jobForm" novalidate>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="jobTitle">Job Title *</label>
+            <input type="text" id="jobTitle" placeholder="e.g. Backend Developer" required>
+          </div>
+          <div class="field-group">
+            <label for="company">Company *</label>
+            <input type="text" id="company" placeholder="e.g. Google" required>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" placeholder="e.g. Bengaluru, Remote">
+          </div>
+          <div class="field-group">
+            <label for="appliedDate">Applied Date</label>
+            <input type="date" id="appliedDate">
+          </div>
+        </div>
+
+        <div class="field-group">
+          <label for="status">Application Status *</label>
+          <select id="status" required>
+            <option value="">— Pick a status —</option>
+            <option value="APPLIED">Applied</option>
+            <option value="INTERVIEW">Interview</option>
+            <option value="OFFERED">Offered</option>
+            <option value="REJECTED">Rejected</option>
+          </select>
+        </div>
+
+        <div class="field-group">
+          <label for="notes">Notes (optional)</label>
+          <input type="text" id="notes" placeholder="Referral? Recruiter name? Any context...">
+        </div>
+
+        <div class="form-actions">
+          <a href="/index.html">
+            <button type="button" class="btn-ghost">Cancel</button>
+          </a>
+          <button type="submit" class="btn-primary submit-btn" id="submitBtn">
+            Save Application
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="toast" id="toast">✅ Job added successfully!</div>
+
+  <script src="/js/form.js"></script>
+</body>
+</html>

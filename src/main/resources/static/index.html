@@ -1,0 +1,84 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerFlow — Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+  <div class="bg-orb orb-3"></div>
+
+  <nav class="navbar">
+    <div class="nav-logo">
+      <div class="brand-icon small">CF</div>
+      <span class="brand-name nav-brand">CareerFlow</span>
+    </div>
+    <div class="nav-right">
+      <span class="nav-greeting">Hey, Mayank 👋</span>
+      <a href="/login.html" class="btn-outline">Logout</a>
+    </div>
+  </nav>
+
+  <div class="dashboard-page">
+
+    <div class="stats-grid">
+      <div class="stat-card purple">
+        <div class="stat-label">Total Applied</div>
+        <div class="stat-number" id="totalCount">0</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="stat-label">In Interview</div>
+        <div class="stat-number" id="interviewCount">0</div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-label">Offers Received</div>
+        <div class="stat-number" id="offeredCount">0</div>
+      </div>
+      <div class="stat-card red">
+        <div class="stat-label">Rejected</div>
+        <div class="stat-number" id="rejectedCount">0</div>
+      </div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title">All Applications</h2>
+      <a href="/form.html">
+        <button class="btn-primary add-btn">+ Add Job</button>
+      </a>
+    </div>
+
+    <div class="glass-card table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Role</th>
+            <th>Location</th>
+            <th>Applied On</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="jobTableBody"></tbody>
+      </table>
+
+      <div class="empty-state" id="emptyState" style="display:none;">
+        <div class="empty-icon">📋</div>
+        <p>No applications yet. Add your first one!</p>
+        <a href="/form.html">
+          <button class="btn-primary" style="width:auto;padding:10px 24px;margin-top:12px;">+ Add Job</button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
