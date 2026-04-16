@@ -7,12 +7,12 @@ CareerFlow is a Spring Boot app for tracking job applications (company, role, lo
 - **Backend**: Spring Boot 3 (Java 17), Maven
 - **API style**: REST (`/api/jobs`)
 - **UI**: Static HTML/CSS/JS served from `src/main/resources/static/`
-- **Planned persistence**: JPA/Hibernate + MySQL dependencies exist, but DB is currently disabled via config
+- **Persistence-ready**: JPA/Hibernate is enabled; provide datasource settings for your target DB (H2/MySQL).
 
 ### Project structure (high level)
 
 - `src/main/java/com/mayank/careerflow/`
-  - `careerflowApplication.java`: Spring Boot entrypoint
+  - `CareerflowApplication.java`: Spring Boot entrypoint
   - `controller/JobController.java`: REST endpoints under `/api/jobs`
   - `service/JobService.java`: service layer (currently stubbed)
   - `entity/Job.java`: JPA entity definition for a job application
@@ -27,7 +27,7 @@ CareerFlow is a Spring Boot app for tracking job applications (company, role, lo
 
 - **The UI runs in mock mode**: `src/main/resources/static/js/dashboard.js` and `src/main/resources/static/js/form.js` have `MOCK_MODE = true`, so the pages use sample data and don’t call the backend.
 - **The backend API exists but is not fully implemented**: `JobService` currently returns placeholder values (no DB / repository yet).
-- **Database is disabled** right now in `src/main/resources/application.yaml` by excluding datasource + JPA autoconfiguration.
+- **Database autoconfiguration is enabled**; tests use H2, and production can use MySQL via datasource properties.
 
 ### Prerequisites
 
@@ -85,7 +85,7 @@ To make the API return real data (instead of stubs), you’ll typically add:
 
 - a Spring Data JPA repository (e.g. `JobRepository`)
 - service methods that call the repository
-- database configuration (remove the excludes in `application.yaml` and add `spring.datasource.*` + `spring.jpa.*`)
+- database configuration (`spring.datasource.*` + `spring.jpa.*`, typically via profiles or environment variables)
 
 Also, to have the UI use the backend, set:
 
