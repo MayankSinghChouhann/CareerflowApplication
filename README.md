@@ -93,3 +93,7 @@ Also, to have the UI use the backend, set:
   - `src/main/resources/static/js/dashboard.js`
   - `src/main/resources/static/js/form.js`
 
+
+### Hindi quick-start guide
+
+- See `docs/HINDI_RUN_GUIDE.md` for a Hindi walkthrough of backend libraries, run steps, and live frontend demo instructions.
