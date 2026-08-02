@@ -97,3 +97,7 @@ Also, to have the UI use the backend, set:
 ### Hindi quick-start guide
 
 - See `docs/HINDI_RUN_GUIDE.md` for a Hindi walkthrough of backend libraries, run steps, and live frontend demo instructions.
+
+### Contribution note
+
+- Keep README updates small and easy to review.
