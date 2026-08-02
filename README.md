@@ -59,6 +59,8 @@ Then open:
 
 Base path: `/api/jobs`
 
+Tip: You can quickly verify backend health with `GET /api/jobs` after startup.
+
 - `GET /api/jobs` - list jobs
 - `GET /api/jobs/{id}` - get a single job
 - `POST /api/jobs` - create a job
