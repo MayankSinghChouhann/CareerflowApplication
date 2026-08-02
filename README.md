@@ -49,6 +49,12 @@ From the project root:
 mvn spring-boot:run
 ```
 
+### Run tests
+
+```bash
+mvn test
+```
+
 Then open:
 
 - **Login**: `http://localhost:8080/login.html`
