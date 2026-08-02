@@ -12,7 +12,7 @@ CareerFlow is a Spring Boot app for tracking job applications (company, role, lo
 ### Project structure (high level)
 
 - `src/main/java/com/mayank/careerflow/`
-  - `CareerflowApplication.java`: Spring Boot entrypoint
+  - `CareerflowApplication.java`: Spring Boot entry point
   - `controller/JobController.java`: REST endpoints under `/api/jobs`
   - `service/JobService.java`: service layer (currently stubbed)
   - `entity/Job.java`: JPA entity definition for a job application
