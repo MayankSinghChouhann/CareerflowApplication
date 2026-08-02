@@ -55,6 +55,8 @@ Then open:
 - **Dashboard**: `http://localhost:8080/index.html`
 - **Add job form**: `http://localhost:8080/form.html`
 
+If port `8080` is busy, set `server.port` in `src/main/resources/application.properties`.
+
 ### API endpoints
 
 Base path: `/api/jobs`
