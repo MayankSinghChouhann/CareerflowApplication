@@ -97,3 +97,6 @@ Also, to have the UI use the backend, set:
 ### Hindi quick-start guide
 
 - See `docs/HINDI_RUN_GUIDE.md` for a Hindi walkthrough of backend libraries, run steps, and live frontend demo instructions.
+## CI/CD Pipeline
+This project uses GitHub Actions for automated build, testing and deployment.
+
