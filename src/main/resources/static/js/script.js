@@ -1,50 +1,66 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("loginForm");
-    const emailInput = document.getElementById("email");
-    const passwordInput = document.getElementById("password");
-    const submitBtn = document.getElementById("submitBtn");
 
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault(); // Prevent actual form submission for this demo
+  const loginForm   = document.getElementById("loginForm");
+  const emailInput  = document.getElementById("email");
+  const passInput   = document.getElementById("password");
+  const emailGroup  = document.getElementById("emailGroup");
+  const passGroup   = document.getElementById("passGroup");
+  const submitBtn   = document.getElementById("submitBtn");
+  const btnText     = document.getElementById("btnText");
 
-        let isValid = true;
+  // --- FORM SUBMIT ---
+  loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        emailInput.parentElement.classList.remove("error");
-        passwordInput.parentElement.classList.remove("error");
+    let valid = true;
 
-     
-        if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
-            emailInput.parentElement.classList.add("error");
-            isValid = false;
-        }
+    clearError(emailGroup);
+    clearError(passGroup);
 
-       
-        if (!passwordInput.value.trim()) {
-            passwordInput.parentElement.classList.add("error");
-            isValid = false;
-        }
+    // Email validation
+    if (!emailInput.value.trim() || !emailInput.value.includes("@")) {
+      showError(emailGroup);
+      valid = false;
+    }
 
-       
-        if (isValid) {
-            submitBtn.textContent = "Signing in...";
-            submitBtn.style.opacity = "0.8";
+    // Password validation
+    if (!passInput.value.trim()) {
+      showError(passGroup);
+      valid = false;
+    }
 
-           
-            setTimeout(() => {
-                alert("Login successful! Redirecting to JobTracker dashboard...");
-                submitBtn.textContent = "Sign in";
-                submitBtn.style.opacity = "1";
-                loginForm.reset();
-            }, 1500);
-        }
-    });
+    // If valid → simulate login
+    if (valid) {
+      setLoading(true);
 
-    // Remove error state on input
-    emailInput.addEventListener("input", () => {
-        emailInput.parentElement.classList.remove("error");
-    });
+      setTimeout(() => {
+        // ✅ Correct path
+        window.location.href = "/index.html";
+      }, 1200);
+    }
+  });
 
-    passwordInput.addEventListener("input", () => {
-        passwordInput.parentElement.classList.remove("error");
-    });
+  // Remove errors on typing
+  emailInput.addEventListener("input", () => clearError(emailGroup));
+  passInput.addEventListener("input",  () => clearError(passGroup));
+
+  // --- FUNCTIONS ---
+  function showError(group) {
+    group.classList.add("has-error");
+  }
+
+  function clearError(group) {
+    group.classList.remove("has-error");
+  }
+
+  function setLoading(isLoading) {
+    if (isLoading) {
+      submitBtn.classList.add("loading");
+      btnText.textContent = "Signing in...";
+    } else {
+      submitBtn.classList.remove("loading");
+      btnText.textContent = "Sign in";
+    }
+  }
+
 });
