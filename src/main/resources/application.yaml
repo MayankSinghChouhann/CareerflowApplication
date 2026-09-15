@@ -1,3 +1,15 @@
 spring:
   application:
     name: careerflow
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/careerflowdb
+    username: root
+    password: yourpassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
